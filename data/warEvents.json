@@ -1,0 +1,47 @@
+[
+  {
+    "id": "iran-missle-strike-2026",
+    "title": "Decapitation strike on Iran's leadership",
+    "warId": "iran-war-2026",
+    "type": "missle-strike",
+    "startDate": "2026-02-28",
+    "location": {
+      "lat": 35.6889,
+      "lng": 51.3897,
+      "country": "Iran",
+      "region": "Middle East",
+      "displayName": "Terhan, Iran"
+    },
+    "summary": "Large-scale strike on Iran's leadership by Israel, targeting the President and key military commanders.",
+    "details": {
+      "partiesInvolved": ["Iran", "Israel"],
+      "externalLinks": [
+        { "label": "Wikipedia", "url": "https://en.wikipedia.org/wiki/2026_Iran_war#Strikes_and_casualties" }
+      ]
+    },
+    "tags": ["iran-war-2026"]
+  },
+  {
+    "id": "iran-missle-strike-2026",
+    "title": "Decapitation strike on Iran's leadership",
+    "warId": "iran-war-2026",
+    "type": "missle-strike",
+    "startDate": "2026-02-28",
+    "location": {
+      "lat": 35.6889,
+      "lng": 51.3897,
+      "country": "Iran",
+      "region": "Middle East",
+      "displayName": "Terhan, Iran"
+    },
+    "summary": "Large-scale strike on Iran's leadership by Israel, targeting the President and key military commanders.",
+    "details": {
+      "partiesInvolved": ["Iran", "Israel"],
+      "externalLinks": [
+        { "label": "Wikipedia", "url": "https://en.wikipedia.org/wiki/2026_Iran_war#Strikes_and_casualties" }
+      ]
+    },
+    "tags": ["iran-war-2026"]
+  }
+]
+

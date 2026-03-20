@@ -1,0 +1,30 @@
+[
+    {
+    "id": "iran-war-2026",
+    "name": "Iran War 2026",
+    "startDate": "2026-02-28",
+    "sides": [
+        {
+            "name": "Iran",
+            "color": "#000000",
+            "partiesInvolvedIds": [103],
+            "supportersIds": [
+                182,
+                45
+            ]
+        },
+        {
+            "name": "Israel",
+            "color": "#000000",
+            "partiesInvolvedIds": [
+                106,
+                233
+            ],
+            "supportersIds": [
+                194,
+                179
+            ]
+        }
+    ]
+    }
+]
