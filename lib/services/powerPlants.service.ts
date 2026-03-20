@@ -26,7 +26,10 @@ const POWER_PLANT_STYLE: Record<
   [PrimaryFuel.OTHER]: { color: "#a1a1aa", svgPath: "/icons/power-plant.svg" },
 };
 
-export async function fetchPowerPlantsByCountryIds(countryIds: number[]): Promise<PowerPlant[]> {
+export async function fetchPowerPlantsByCountryIds(
+  countryIds: number[],
+  minCapacityInMW?: number | undefined
+): Promise<PowerPlant[]> {
   if (countryIds.length === 0) {
     return [];
   }
@@ -41,13 +44,14 @@ export async function fetchPowerPlantsByCountryIds(countryIds: number[]): Promis
       geom,
       country:countries!power_plants_country_id_fkey(id, name, emoji)
     `)
-    .gte('capacity_in_mw', 3500)
+    .order("capacity_in_mw", "desc")
+    .limit(1000)
     .in("country_id", countryIds);
   if (!error && data) return data as PowerPlant[];
   return [];
 }
 
-export async function fetchPowerPlants(): Promise<PowerPlant[]> {
+export async function fetchPowerPlants(minCapacityInMW?: number | undefined): Promise<PowerPlant[]> {
   const scarif = createScarifClient();
   const { data, error } = await scarif
     .from("power_plants")
@@ -59,7 +63,7 @@ export async function fetchPowerPlants(): Promise<PowerPlant[]> {
       geom,
       country:countries!power_plants_country_id_fkey(id, name, emoji)
     `).
-    gte('capacity_in_mw', 3500);
+    gte('capacity_in_mw', minCapacityInMW ?? 0);
   if (!error && data) return data as PowerPlant[];
   return [];
 }

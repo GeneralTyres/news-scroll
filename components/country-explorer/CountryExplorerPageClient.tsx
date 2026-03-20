@@ -10,6 +10,7 @@ import type { MilitaryBase } from "@/types/militaryBase";
 import type { PowerPlant } from "@/types/powerPlants";
 import { CountryExplorerMapView } from "./CountryExplorerMapView";
 import { SidePanel } from "@/components/common/SidePanel";
+import { CommonLoadingScreen } from "@/components/common/CommonLoadingScreen";
 import { CountrySidePanel } from "./CountrySidePanel";
 
 export interface CountryExplorerPageClientProps {
@@ -113,6 +114,8 @@ export function CountryExplorerPageClient(props: Readonly<CountryExplorerPageCli
         onCountryPick={handleCountryPick}
         fitToMarkersKey={selectedCountryId}
       />
+
+      {loading && <CommonLoadingScreen label="Loading country data..." />}
     </div>
   );
 }

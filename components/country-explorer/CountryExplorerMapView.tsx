@@ -14,6 +14,7 @@ import { createMilitaryAndPowerPlantMarkers } from "@/lib/maps/locationMarkersSy
 import { fitMapToPoints, type LngLatLike } from "@/lib/war-map/warMapBounds";
 import type { MilitaryBase } from "@/types/militaryBase";
 import type { PowerPlant } from "@/types/powerPlants";
+import { log } from "console";
 
 export interface CountryExplorerMapViewProps {
   boundaryFeatureCollection: FeatureCollection;
@@ -103,6 +104,8 @@ export function CountryExplorerMapView({
       );
       if (cancelled) return;
       markersRef.current = markers;
+
+      console.log('markers', markers);
 
       if (
         fitToMarkersKey != null &&
