@@ -1,4 +1,4 @@
-import { createScarifClient } from "../scarif/client";
+import { createScarifClient } from "@/lib/scarif/client";
 import type { MilitaryBase } from "@/types/militaryBase";
 
 export async function fetchMilitaryBasesByCountryIds(countryIds: number[]): Promise<MilitaryBase[]> {
