@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { PowerPlantsView, type MapViewApi } from "@/components/power-plants/PowerPlantsView";
-import { fetchPowerPlants } from "@/lib/services/powerPlants.service";
+import { fetchPowerPlants } from "@/lib/services/power-plants/powerPlants.service";
 import type { PowerPlant } from "@/types/powerPlants";
 
 export function PowerPlantsPageClient() {

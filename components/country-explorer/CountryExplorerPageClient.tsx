@@ -4,7 +4,7 @@ import { useCallback, useMemo, useState } from "react";
 import type { CountryWithBoundarySimple } from "@/types/countries";
 import { countriesToBoundaryFeatureCollection } from "@/lib/maps/countryGeoJson";
 import { fetchMilitaryBasesByCountryIds } from "@/lib/services/military-bases/militaryBases.service";
-import { fetchPowerPlantsByCountryIds } from "@/lib/services/powerPlants.service";
+import { fetchPowerPlantsByCountryIds } from "@/lib/services/power-plants/powerPlants.service";
 import { cn } from "@/lib/utils";
 import type { MilitaryBase } from "@/types/militaryBase";
 import type { PowerPlant } from "@/types/powerPlants";

@@ -5,7 +5,7 @@ import { MilitaryBaseType } from "@/types/militaryBase";
 import type { PowerPlant } from "@/types/powerPlants";
 import { PrimaryFuel } from "@/types/powerPlants";
 import { createMilitaryBaseMarker } from "@/lib/services/military-bases/militaryBaseMarkers";
-import { createPowerPlantMarker } from "@/lib/services/powerPlants.service";
+import { createPowerPlantMarker } from "@/lib/services/power-plants/powerPlants.service";
 
 export interface LocationMarkersInput {
   militaryBases?: MilitaryBase[];

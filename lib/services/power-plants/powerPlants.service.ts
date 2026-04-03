@@ -1,4 +1,4 @@
-import { createScarifClient } from "../scarif/client";
+import { createScarifClient } from "../../scarif/client";
 import type { PowerPlant } from "@/types/powerPlants";
 import { PrimaryFuel } from "@/types/powerPlants";
 import type { Country } from "@/types/countries";

@@ -1,11 +1,11 @@
 import { notFound } from "next/navigation";
 import { getWarById } from "@/lib/wars";
 import { getEventsByWarId } from "@/lib/events";
-import { fetchMilitaryBasesByCountryIds } from "@/lib/services/militaryBases.service";
 import { WarMapPageClient } from "@/components/war-map/WarMapPageClient";
-import { fetchPowerPlantsByCountryIds } from "@/lib/services/powerPlants.service";
-import { fetchCountries } from "@/lib/services/country.service";
+import { fetchPowerPlantsByCountryIds } from "@/lib/services/power-plants/powerPlants.service";
+import { fetchCountries } from "@/lib/services/countries/country.service";
 import { convertWarDataToWar } from "@/lib/war-map/dataConverstion";
+import {fetchMilitaryBasesByCountryIds} from "@/lib/services/military-bases/militaryBases.service";
 
 interface PageProps {
   params: Promise<{ id: string }>;

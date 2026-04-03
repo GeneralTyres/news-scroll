@@ -1,4 +1,4 @@
-import { createScarifClient } from "../scarif/client";
+import { createScarifClient } from "../../scarif/client";
 import type { Country, CountryWithBoundarySimple } from "@/types/countries";
 
 let boundaryCountriesCache: {

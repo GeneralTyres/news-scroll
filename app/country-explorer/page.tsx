@@ -1,4 +1,4 @@
-import { fetchCountryExplorerCountries } from "@/lib/services/country.service";
+import { fetchCountryExplorerCountries } from "@/lib/services/countries/country.service";
 import { CountryExplorerPageClient } from "@/components/country-explorer/CountryExplorerPageClient";
 
 export const dynamic = "force-dynamic";

@@ -12,4 +12,3 @@ export {
   type WarMapFilterOption,
 } from "./warMapFilter.config";
 export { fitMapToPoints, type LngLatLike } from "./warMapBounds";
-export { createMilitaryBaseMarker } from "./markers";
