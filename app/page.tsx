@@ -22,11 +22,18 @@ export default function Home() {
 
   const maps: MapConfig[] = [
     {
-      name: 'Country Explorer',
-      description: 'Browse countries, explore data, and interact with geographic insights.',
+      name: "Country Explorer",
+      description:
+        "Browse countries, explore data, and interact with geographic insights.",
       url: "/country-explorer",
-    }
-  ]
+    },
+    {
+      name: "Boundaries Explorer",
+      description:
+        "Drill through country and state boundaries from the database to audit coverage and geometry.",
+      url: "/boundries-explorer",
+    },
+  ];
 
   return (
       <div className="min-h-screen bg-background text-foreground">

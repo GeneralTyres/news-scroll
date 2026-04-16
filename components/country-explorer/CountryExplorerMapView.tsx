@@ -22,7 +22,7 @@ import {
   powerPlantsToPointCollection,
   type ExplorerPointProperties,
 } from "@/lib/maps/locationMarkersSync";
-import { fitMapToPoints, type LngLatLike } from "@/lib/war-map/warMapBounds";
+import { fitMapToPoints, type LngLatLike } from "@/lib/maps/fitMapToPoints";
 import type { MilitaryBase } from "@/types/militaryBase";
 import type { PowerPlant } from "@/types/powerPlants";
 

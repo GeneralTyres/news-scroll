@@ -113,7 +113,7 @@ export function buildExplorerPointPopupHtml(
 }
 
 /**
- * Create markers for bases and power plants (bases first, then plants). Reuses war-map marker styles.
+ * Create markers for bases and power plants (bases first, then plants). Reuses shared marker styles.
  */
 export async function createMilitaryAndPowerPlantMarkers(
   map: maplibregl.Map,

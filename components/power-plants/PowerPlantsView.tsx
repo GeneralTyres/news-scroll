@@ -6,7 +6,7 @@ import "maplibre-gl/dist/maplibre-gl.css";
 import type { WorldEvent } from "@/types/warEvent";
 import { createMapInContainer } from "@/lib/maps/maplibreBootstrap";
 import { createMilitaryAndPowerPlantMarkers } from "@/lib/maps/locationMarkersSync";
-import { fitMapToPoints, type LngLatLike } from "@/lib/war-map/warMapBounds";
+import { fitMapToPoints, type LngLatLike } from "@/lib/maps/fitMapToPoints";
 import type { PowerPlant } from "@/types/powerPlants";
 
 export interface MapViewApi {
