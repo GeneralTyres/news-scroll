@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import maplibregl from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
-import type { FeatureCollection, Point } from "geojson";
+import type { FeatureCollection } from "geojson";
 import type {
   CircleLayerSpecification,
   GeoJSONSourceSpecification,
@@ -20,7 +20,7 @@ import {
   EMPTY_POINT_COLLECTION,
   militaryBasesToPointCollection,
   powerPlantsToPointCollection,
-  type ExplorerPointProperties,
+  type ExplorerPointFeature,
 } from "@/lib/maps/locationMarkersSync";
 import { fitMapToPoints, type LngLatLike } from "@/lib/maps/fitMapToPoints";
 import type { MilitaryBase } from "@/types/militaryBase";
@@ -193,9 +193,7 @@ export function CountryExplorerMapView({
       setCountryBoundariesData(map, boundaryRef.current);
 
       const onPointClick = (e: maplibregl.MapLayerMouseEvent) => {
-        const feature = e.features?.[0] as
-          | { properties?: ExplorerPointProperties; geometry?: Point }
-          | undefined;
+        const feature = e.features?.[0] as unknown as ExplorerPointFeature | undefined;
         if (!feature?.geometry?.coordinates) return;
         const [lng, lat] = feature.geometry.coordinates;
         if (lng == null || lat == null) return;

@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "News Scroll",
+  title: "ScarifGEO",
   description: "Interactive maps",
 };
 
