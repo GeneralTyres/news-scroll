@@ -5,13 +5,13 @@ import type { CountryWithBoundarySimple } from "@/types/countries";
 import { countriesToBoundaryFeatureCollection } from "@/lib/maps/countryGeoJson";
 import { fetchMilitaryBasesByCountryIds } from "@/lib/services/military-bases/militaryBases.service";
 import { fetchPowerPlantsByCountryIds } from "@/lib/services/power-plants/powerPlants.service";
-import { cn } from "@/lib/utils";
 import type { MilitaryBase } from "@/types/militaryBase";
 import type { PowerPlant } from "@/types/powerPlants";
 import { CountryExplorerMapView } from "./CountryExplorerMapView";
 import { SidePanel } from "@/components/common/SidePanel";
 import { CommonLoadingScreen } from "@/components/common/CommonLoadingScreen";
 import { CountrySidePanel } from "./CountrySidePanel";
+import { CountrySearch } from "./CountrySearch";
 
 export interface CountryExplorerPageClientProps {
   countries: ReadonlyArray<CountryWithBoundarySimple>;
@@ -65,37 +65,11 @@ export function CountryExplorerPageClient(props: Readonly<CountryExplorerPageCli
 
   return (
     <div className="relative h-screen w-screen bg-zinc-950">
-      <SidePanel side="left" className="w-[min(100%-2rem,240px)]">
-        <div>
-          <h1 className="text-sm font-semibold text-zinc-100">Country explorer</h1>
-          <p className="text-xs text-zinc-500">Click a country on the map or list.</p>
-        </div>
-
-        <div className="min-h-0 flex-1 overflow-hidden">
-          <div className="mb-1 text-xs font-medium uppercase tracking-wider text-zinc-500">
-            Boundaries
-          </div>
-          <ul className="max-h-[50vh] overflow-y-auto text-sm">
-            {visibleCountries.map((c) => (
-              <li key={c.id}>
-                <button
-                  type="button"
-                  onClick={() => void handleCountryPick(c.id)}
-                  className={cn(
-                    "flex w-full items-center gap-2 rounded px-2 py-1.5 text-left text-zinc-300",
-                    "hover:bg-zinc-800/80 hover:text-zinc-100"
-                  )}
-                >
-                  <span>{c.emoji}</span>
-                  <span className="truncate">{c.name}</span>
-                  {!c.boundary_simple && (
-                    <span className="ml-auto text-[10px] text-zinc-600">no poly</span>
-                  )}
-                </button>
-              </li>
-            ))}
-          </ul>
-        </div>
+      <SidePanel side="left" className="w-[min(100%-2rem,240px)] w-[25%]">
+        <CountrySearch
+          countries={visibleCountries}
+          onSelect={handleCountryPick}
+        />
       </SidePanel>
 
       {selectedCountry && (

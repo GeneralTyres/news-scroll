@@ -51,8 +51,6 @@ export function CountrySidePanel({
     capacity_in_mw: count,
   }));
 
-  console.log(chartData);
-
   return (
     <SidePanel
       side="right"
