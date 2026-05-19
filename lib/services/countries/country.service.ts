@@ -1,5 +1,5 @@
-import { createScarifClient } from "../../scarif/client";
-import type { Country, CountryWithBoundarySimple } from "@/types/countries";
+import { loadCountryExplorerCountries } from "@/lib/scarif/loaders/countries";
+import type { CountryWithBoundarySimple } from "@/types/countries";
 
 let boundaryCountriesCache: {
   value: CountryWithBoundarySimple[] | null;
@@ -9,16 +9,12 @@ let boundaryCountriesCache: {
 let boundaryCountriesInFlight: Promise<CountryWithBoundarySimple[]> | null =
   null;
 
-const BOUNDARY_COUNTRIES_CACHE_TTL_MS = 60_000; // Reduce repeat loads; refreshes quickly.
+const BOUNDARY_COUNTRIES_CACHE_TTL_MS = 60_000;
 
-export async function fetchCountries(): Promise<Country[]> {
-  const scarif = createScarifClient();
-  const { data, error } = await scarif.from("countries").select("id, name, emoji");
-  if (!error && data) return data as Country[];
-  return [];
-}
-
-export async function fetchCountryExplorerCountries(): Promise<CountryWithBoundarySimple[]> {
+/** Cached countries for the country explorer (TTL + in-flight dedup). */
+export async function fetchCountryExplorerCountries(): Promise<
+  CountryWithBoundarySimple[]
+> {
   const now = Date.now();
   if (
     boundaryCountriesCache.value &&
@@ -31,20 +27,11 @@ export async function fetchCountryExplorerCountries(): Promise<CountryWithBounda
     return boundaryCountriesInFlight;
   }
 
-  const promise: Promise<CountryWithBoundarySimple[]> = (async () => {
-    const scarif = createScarifClient();
-    const { data, error } = await scarif
-      .from("countries")
-      .select("id, name, emoji, currency, currency_symbol, boundary_simple");
-
-    if (!error && data) {
-      const value = data as CountryWithBoundarySimple[];
-      boundaryCountriesCache = { value, ts: Date.now() };
-      return value;
-    }
-    boundaryCountriesCache = { value: null, ts: Date.now() };
-    return [];
-  })();
+  const promise = loadCountryExplorerCountries().then((value) => {
+    if (value === null) return [];
+    boundaryCountriesCache = { value, ts: Date.now() };
+    return value;
+  });
 
   boundaryCountriesInFlight = promise;
   promise.finally(() => {
